@@ -9,7 +9,6 @@
 
 (defroutes app
   (GET "/" [] index)
-  (resources "/")
-  (files "/" {:root "target/classes/public"}))
+  (resources "/"))
 
 

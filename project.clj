@@ -9,19 +9,22 @@
                  [com.stuartsierra/component "0.4.0"]
                  [compojure "1.6.1"]]
   :main ^:skip-aot undead.system
+  :source-paths ["src" "cljs-src"]
   :target-path "target/%s"
   :profiles {:dev {
                    :plugins [[lein-cljsbuild "1.1.7"]
                              [lein-figwheel "0.5.19"]]
                    :dependencies [[reloaded.repl "0.2.4"]]
                    :source-paths ["dev"]
+                   :resource-paths ["target"]
+                   :clean-targets ^{:protect false} ["target"]
                    :cljsbuild {
                                :builds [ {
                                           :id "dev"
                                           :source-paths ["src-cljs"]
                                           :figwheel true
-                                          :compiler {:output-to "target/classes/public/app.js"
-                                                     :output-dir "target/classes/public/out"
+                                          :compiler {:output-to "target/public/app.js"
+                                                     :output-dir "target/public/out"
                                                      :optimizations :none
                                                      :main "undead.client"
                                                      :asset-path "out"
